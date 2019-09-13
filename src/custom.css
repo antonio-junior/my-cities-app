@@ -1,0 +1,14 @@
+.card {
+    display: inline-block;
+    width: 18rem;
+    margin: 10px
+}
+
+.dropdown-menu {
+    top: auto;
+    display: block;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+}

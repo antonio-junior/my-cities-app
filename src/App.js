@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import './custom.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AutoComplete from './AutoComplete'
+import Content from './Content'
+
+export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { cities: [] }
+    this.onClickSuggestion = this.onClickSuggestion.bind(this)
+    this.onClickRemove = this.onClickRemove.bind(this)
+  }
+  render() {
+    return(
+      <div className="App">
+        <h1>Weather App</h1>
+        <AutoComplete onClickSuggestion={this.onClickSuggestion} />
+        <Content cities={this.state.cities} onClickRemove={this.onClickRemove}/>
+      </div>
+    )
+  }
+
+    onClickSuggestion (city) {
+      this.setState({ cities: this.state.cities.concat(city)})
+    }
+
+    onClickRemove (city) {
+      this.setState({ cities: this.state.cities.filter(x => x.id !== city.id)})
+    }
 }
-
-export default App;
