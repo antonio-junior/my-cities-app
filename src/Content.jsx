@@ -3,7 +3,7 @@ import React from 'react';
 export default props => (
     <div>
         {props.cities.map( city => (
-            <div className="card">
+            <div className="card" key={city.id}>
             <img className="card-img-top" src={city.image} alt={city.name} />
             <div className="card-body">
                 <h5 className="card-title">{city.city}</h5>

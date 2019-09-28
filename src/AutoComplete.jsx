@@ -45,6 +45,8 @@ class AutoComplete extends Component {
         }).then(response => response.json())
         .then(json => {
             e.image = json.photos[0].src.small
+            this.setState({value: ''})
+            this.cityInput.focus(); 
             this.props.onClickSuggestion(e)
         })
         .catch(error => this.setState({
@@ -56,7 +58,9 @@ class AutoComplete extends Component {
     render() {
         return (
             <div>
-                <input onChange={this.onKeyChange} 
+                <input 
+                ref={(input) => { this.cityInput = input; }} 
+                onChange={this.onKeyChange} 
                 value={this.state.value} 
                 className="form-control" 
                 type="text" 
