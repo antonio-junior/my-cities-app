@@ -5,8 +5,6 @@ const API_IMG = "https://api.pexels.com/v1/search?query="
 //http://geodb-free-service.wirefreethought.com/v1/geo/cities/136168
 //chave google: AIzaSyBnF1n-2UYOs4vM0QKWN8wZIsNcYZxp-M8
 
-const AUTH = process.env.GOOGLE_API_KEY
-
 class AutoComplete extends Component {
 
     constructor(props) {
@@ -40,7 +38,7 @@ class AutoComplete extends Component {
         fetch(API_IMG + e.country + "+monument", {
             method: 'GET',
             headers: {
-                'Authorization': AUTH
+                'Authorization': process.env.GOOGLE_API_KEY
             }
         }).then(response => response.json())
         .then(json => {
