@@ -5,7 +5,7 @@ const API_IMG = "https://api.pexels.com/v1/search?query="
 //http://geodb-free-service.wirefreethought.com/v1/geo/cities/136168
 //chave google: AIzaSyBnF1n-2UYOs4vM0QKWN8wZIsNcYZxp-M8
 
-const AUTH = "563492ad6f917000010000011f54b272cdde4d2c82587bbef141d89f"
+const AUTH = process.env.GOOGLE_API_KEY
 
 class AutoComplete extends Component {
 
